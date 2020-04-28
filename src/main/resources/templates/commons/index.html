@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Agregar Alumno</title>
+</head>
+<body >
+	
+	<span th:text="${hora}"></span>
+
+	<form method="post" th:action="@{/ingresar}"  >
+	
+	  <p>Nombres: <input type="text" name="nombre" size="26"></p>
+	
+	  <p>Apellidos: <input type="text" name="apellido"  size="26"></p>
+	
+	  <p>Año de nacimiento: <input type="date"  name="fecha" min="2003-01-01"></p>
+	
+	  <p>Lugar de Nacimiento: <input type="text" name="lugar" size="26"></p>
+	
+	  <p>Instituto o Colegio de Procedencia: <input type="text" name="colegio" size="26"></p>
+	
+	  <p>Telefono Fijo: <input type="text" name="telFijo" size="9"></p>
+	
+	  <p>Telefono Movil: <input type="text" name="telMovil" size="9"></p>
+	  
+	  <p>
+	    <input type="submit" value="Enviar">
+	    <input type="reset" value="Borrar">
+	  </p>
+	</form>
+	
+	
+</body>
+
+</html>
