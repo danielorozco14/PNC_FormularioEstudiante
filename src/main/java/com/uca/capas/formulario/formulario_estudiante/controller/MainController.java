@@ -1,5 +1,6 @@
 package com.uca.capas.formulario.formulario_estudiante.controller;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -34,12 +35,11 @@ public class MainController {
 		
 		ModelAndView mav = new ModelAndView();
 		/*
-		mav.addObject("nombre", nombre);
-		mav.addObject("apellido", apellido);
-		mav.addObject("fecha", fecha);
-		mav.addObject("lugar", lugar);
-		mav.addObject("colegio", colegio);
-		mav.addObject("telFijo", telFijo);
+		mav.add("nombre", nombre);
+		mav.add("apellido", apellido);
+		mav.add("lugar", lugar);
+		mav.add("colegio", colegio);
+		mav.add("telFijo", telFijo);
 		mav.addObject("telMovil", telMovil);
 		*/
 		
@@ -52,6 +52,28 @@ public class MainController {
 			mav.setViewName("commons/exito");
 			return mav;
 		}else {
+			ArrayList<String> e = new ArrayList<>();
+			String TAG="Error al ingresar datos en :";
+			if(nombre.length()<1 || nombre.length()>25) {
+				e.add(TAG +"nombre");
+			}
+			if(apellido.length()<1 || apellido.length()>25) {
+				e.add(TAG +"apellido");
+			}
+			if(lugar.length()<1 || lugar.length()>25) {
+				e.add(TAG +"lugar");
+			}
+			if(colegio.length()<1 || colegio.length()>25) {
+				e.add(TAG +"colegio");
+			}
+			if(telFijo.length()!=8) {
+				e.add(TAG +"telefono Fijo. Deben ser exactamente 8 digitos");
+			}
+			if(telMovil.length()!=8) {
+				e.add(TAG +"telefono Movil. Deben ser exactamente 8 digitos");
+			}
+			
+			mav.addObject("errores", e);
 			mav.setViewName("commons/fallo");
 			return mav;
 		}		

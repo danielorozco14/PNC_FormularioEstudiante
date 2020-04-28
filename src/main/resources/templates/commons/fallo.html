@@ -1,5 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Fallo al agregar Alumno</title>
 	<body>
-		<p>Fallo al agregar </p>
+		<h2>Fallo al agregar </h2>
+		
+		
+		<table>
+			
+			<tr th:each="c: ${errores}">
+				<td th:text="${c}"/>
+			</tr>
+		
+		</table>
+		
+		
 	</body>
 </html>
